@@ -1,10 +1,8 @@
 #ifndef MATH_H
 #define MATH_H
 
-typedef struct {
-	float q[4];
-} Quat;
 
-Quat quat_identity();
+#define M_PI 3.14159265358979323846
+
 
 #endif
