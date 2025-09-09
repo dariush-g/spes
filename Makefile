@@ -3,6 +3,7 @@ CFLAGS = -Wall -Wextra -std=c99 -O2 -g
 LIBS = -lSDL3 -lm
 SRCDIR = src
 BUILDDIR = build
+CFLAGS += -D_POSIX_C_SOURCE=199309L
 
 SOURCES = $(shell find $(SRCDIR) -name "*.c")
 OBJECTS = $(SOURCES:$(SRCDIR)/%.c=$(BUILDDIR)/%.o)

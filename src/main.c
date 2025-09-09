@@ -2,9 +2,11 @@
 #include "engine/vertex.h"
 #include "engine/window.h"
 #include <SDL3/SDL_oldnames.h>
+#include "engine/time.h"
 #include "engine/math.h"
 #include <stdbool.h>
 #include <stdio.h>
+#include <time.h>
 
 
 int main(void) {
@@ -21,6 +23,8 @@ int main(void) {
 	Vertex tri[3] = {
 	    {-1.0f, -1.0f, 5.0f}, {1.0f, -1.0f, 5.0f}, {0.0f, 1.0f, 5.0f}};
 
+    delta_time(); 
+    
 	while (!window_should_quit()) {
 		window_handle_events();
 
@@ -39,12 +43,19 @@ int main(void) {
 					      z[1], x[2], y[2], z[2],
 					      COLOR_RED);
 
+        
 		renderer_present();
 		window_present();
-		SDL_Delay(300);
+
+                       
+        struct timespec req = {0, 16000000}; // 16ms
+        nanosleep(&req, NULL);
 	}
 	renderer_cleanup();
 	window_cleanup();
+
+    double dt = delta_time();
+    printf("%f", dt);
 
 	return 0;
 }
