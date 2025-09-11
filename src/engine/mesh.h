@@ -28,6 +28,7 @@ void mesh_create_cuboid(float length, float width, float height);
 
 void mesh_create_sphere(float radius);
 
+void mesh_create_ramp(float length, float width, float height);
 
 typedef struct {
     Mesh* mesh;
@@ -37,6 +38,7 @@ typedef struct {
 } MeshInstance;
 
 void draw_instance(MeshInstance *instance);
+
 
 
 #endif
